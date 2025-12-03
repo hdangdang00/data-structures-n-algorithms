@@ -3,12 +3,18 @@
  * @return {number[]}
  */
 var smallerNumbersThanCurrent = function(nums) {
-    let n = nums.length
-    let result = Array(n)
     let ascNums = [...nums].sort((a, b) => a - b)
+    let result = []
 
-    for (let i = 0; i < n; i++) {
-        result[i] = ascNums.indexOf(nums[i])
+    const indexMap = new Map()
+    for (let i = 0; i < ascNums.length; i++) {
+        if (!indexMap.has(ascNums[i])) {
+            indexMap.set(ascNums[i], i)
+        }
+    }
+
+    for (let num of nums) {
+        result.push(indexMap.get(num))
     }
 
     return result
