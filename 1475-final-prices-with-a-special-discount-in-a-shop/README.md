@@ -39,3 +39,17 @@ For items 3 and 4 you will not receive any discount at all.
 	<li><code>1 &lt;= prices.length &lt;= 500</code></li>
 	<li><code>1 &lt;= prices[i] &lt;= 1000</code></li>
 </ul>
+
+---
+## 📌 NOTES
+### 접근 방식
+- monotonic decreasing stack 사용
+- 오른쪽에서 처음 나오는 현재 가격보다 작거나 같은 가격을 할인 가격으로 적용
+- 아직 할인 가격이 정해지지 않은 상품의 index를 stack에 저장
+
+### 구현 포인트
+- 하나의 할인 가격이 여러 개의 상품에 적용될 수 있으므로 if가 아닌 while을 사용
+
+### 복잡도
+- Time: O(n)
+- Space: O(n)
